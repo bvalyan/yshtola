@@ -118,7 +118,7 @@ function pruneGuildMembers(message, daysInactive) {
   if (message.member.hasPermission('ADMINISTRATOR')) {
     var inactiveDays = Number(daysInactive);
     message.guild.pruneMembers(inactiveDays, true)
-      .then(pruned => message.reply(`This will prune ${pruned} people from the server for being inactive for ${inactiveDays} days! Continue? (y/n)`))
+      .then(pruned => message.reply(`This shall remove ${pruned} people from the server for inactivity over ${inactiveDays} days. Do you wish to continue? (y/n)`))
       .then(() => {
         message.channel.awaitMessages(response => response.author === message.author, {
           max: 1,
